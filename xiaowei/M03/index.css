@@ -1,0 +1,73 @@
+ body {
+     background-color: #000;
+     word-wrap: break-word;
+ }
+ 
+ .logosquare {
+     background-color: #eee;
+     height: 80px;
+     width: 80px;
+     margin: 20px;
+     border: #999 1px solid;
+ }
+ 
+ .inlineblock {
+     display: inline-block;
+ }
+ 
+ .teamname {
+     display: inline-block;
+     vertical-align: top;
+     margin: 20px 0;
+ }
+ 
+ .leftbox {
+     background-color: #fff;
+     width: 200px;
+     float: left;
+     margin: 20px;
+     border: #999 1px solid;
+ }
+ 
+ .rightbox {
+     background-color: #fff;
+     width: 120px;
+     float: right;
+     margin: 20px;
+     border: #999 1px solid;
+ }
+ 
+ .midbox {
+     margin-left: 240px;
+     margin-right: 160px;
+     padding-top: 20px;
+ }
+ 
+ .midbox .box {
+     background-color: #fff;
+     height: 400px;
+     border: #999 1px solid;
+ }
+ 
+ .img {
+     background-image: url(https://avatars0.githubusercontent.com/u/16345155?v=3&s=460);
+     background-size: contain;
+ }
+ 
+ p {
+     padding: 20px;
+     margin: 0;
+ }
+ 
+ .divbox {
+     background-color: #eee;
+     overflow: hidden;
+     margin:20px;
+     border: #999 1px solid;
+ }
+ 
+ .divoutbox {
+     background-color: #fff;
+     height: 600px;
+     border: #999 1px solid;
+ }
