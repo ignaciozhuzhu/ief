@@ -1,0 +1,156 @@
+li {
+        padding-left: 20px;
+    }
+    
+    img {
+        width: 300px;
+        height: 200px;
+        background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1488787768&di=154c9a43ac8d6c06417ea4cb91a247d4&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.ithome.com%2Fnewsuploadfiles%2F2015%2F9%2F20150916_181441_119.jpg);
+        background-size: contain;
+    }
+    
+    input {
+        margin-left: 10px;
+    }
+    
+    body {
+        background: #0E0E0E;
+        margin: 0;
+        font-size: 14px;
+    }
+    
+    .nav li {
+        display: inline-block;
+    }
+    
+    .inline {
+        display: inline-block;
+    }
+    
+    .bgd_bray {
+        background: #333;
+    }
+    
+    .navright {
+        float: right;
+        line-height: 54px;
+        font-size: 14px;
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    
+    .container0 {
+        background: #ccc;
+        margin: 0 auto;
+    }
+    .contright{
+        margin-right:350px;
+    }
+    .contleft{
+        float:right;
+        width:300px;
+    }
+    
+    .container1 {
+        background-color: #fff;
+        margin: 20px;
+        padding: 20px;
+        border:1px solid #aaa;
+        border-bottom: 2px solid #aaa;
+    }
+    
+    p {
+        text-indent: 30px;
+    }
+    
+    .sidebar p {
+        text-indent: 10px;
+    }
+    
+    .nav a {
+        text-decoration: none;
+        color: #fff;
+    }
+    
+    .imgbox {
+        display: inline-block;
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    .imgbox img {
+        width: 100px;
+        height: 70px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .imgbox p {
+        text-align: center;
+        text-indent: 0px;
+        margin: 0 0 10px 0;
+    }
+    
+    .tb {
+        border-style: groove;
+        border-spacing: 1px;
+        border-collapse: collapse;
+        border: 1px solid #aaa;
+        width: 100%;
+    }
+    
+    .tb_head {
+        background-color: #333;
+        color: #fff;
+    }
+    
+    .tb_head.w40 {
+        width: 40%;
+    }
+    
+    .tb_head.w20 {
+        width: 20%;
+    }
+    
+    footer {
+        text-align: center;
+        background-color: #000;
+        color: #fff;
+        font-size: 12px;
+        padding: 20px 0;
+    }
+    
+    form {
+        line-height: 30px;
+    }
+    
+    label.left,
+    span.left {
+        width: 30%;
+        display: inline-block;
+        text-align: right;
+        vertical-align: top;
+    }
+    
+    .left+.right {
+        width: 50%;
+        display: inline-block;
+    }
+    
+    button.bottom {
+        width: 100%;
+        background-color: #3355D0;
+        color: #fff;
+        line-height: 30px;
+        border-radius: 8px;
+    }
+    
+    textarea {
+        line-height: 50px;
+        width: 100%;
+    }
+    
+    .right p {
+        margin: 8px auto;
+    }
