@@ -49,6 +49,7 @@
     <button>右侧入</button>
     <button>左侧出</button>
     <button>右侧出</button>
+    <button>排序</button>
     <ul>
         <li>10</li>
         <li>3</li>
@@ -65,15 +66,14 @@
         var input = document.getElementsByTagName("input")[0];
         var ul = document.getElementsByTagName("ul")[0];
         var arr = [];
-        
+
         init();
-        sortAndSet();
 
         function isCheck(value) {
             if (value !== "" && isNaN(value) === false)
                 return true
             else {
-                alert("请输入");
+                alert("请输入数字");
                 input.focus();
                 return false
             };
@@ -142,20 +142,19 @@
                         alert("队列元素不能超过60")
                         return
                     }
-                    if (isCheck(value) && isCheckNum(value)) {
-                        if (i == 0) {
+                    if (i == 0) {
+                        if (isCheck(value) && isCheckNum(value)) {
                             ul.insertBefore(node, ul.childNodes[0]);
                             ul.insertBefore(space, ul.childNodes[0]);
                             add(value, 0);
-                            sortAndSet();
-                        } else if (i == 1) {
+                        }
+                    } else if (i == 1) {
+                        if (isCheck(value) && isCheckNum(value)) {
                             ul.appendChild(node);
                             ul.appendChild(space);
                             add(value, arr.length);
-                            sortAndSet();
                         }
-                    }
-                    if (i == 2) {
+                    } else if (i == 2) {
                         alert(ul.childNodes[1].innerText);
                         ul.removeChild(ul.childNodes[1]);
                         ul.removeChild(ul.childNodes[0]);
@@ -166,6 +165,8 @@
                         ul.removeChild(ul.childNodes[len - 1]);
                         ul.removeChild(ul.childNodes[len - 2]);
                         arr.pop();
+                    } else if (i == 4) {
+                        sortAndSet();
                     }
                 }
             })(i)
