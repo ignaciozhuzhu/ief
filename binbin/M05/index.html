@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 05</title>
+    <style>
+    ul {
+        list-style: none;
+        padding-left: 5px;
+        position: absolute;
+        bottom: 0;
+    }
+    
+    li {
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+        background-color: red;
+        color: #fff;
+        text-align: center;
+        line-height: 30px;
+        vertical-align: bottom;
+        font-size: 0;
+    }
+    </style>
+    <!--
+任务目的
+学习与实践JavaScript的基本语法、语言特性
+练习使用JavaScript实现简单的排序算法
+任务描述
+基于上一任务
+限制输入的数字在10-100
+队列元素数量最多限制为60个，当超过60个时，添加元素时alert出提示
+队列展现方式变化如图，直接用高度表示数字大小
+实现一个简单的排序功能，如冒泡排序（不限制具体算法），用可视化的方法表达出来，参考见下方参考资料
+任务注意事项
+实现简单功能的同时，请仔细学习JavaScript基本语法、事件、DOM相关的知识
+请注意代码风格的整齐、优雅
+代码中含有必要的注释
+示例图仅为参考，不需要完全一致
+具体算法及可视化的形式不做特别限制，只要求能够展现出算法的过程
+建议不使用任何第三方库、框架 -->
+</head>
+
+<body>
+    <input />
+    <button>左侧入</button>
+    <button>右侧入</button>
+    <button>左侧出</button>
+    <button>右侧出</button>
+    <ul>
+        <li>10</li>
+        <li>3</li>
+        <li>7</li>
+        <li>12</li>
+        <li>11</li>
+        <li>30</li>
+    </ul>
+    <script type="text/javascript">
+    (function() {
+
+        var buttons = document.getElementsByTagName("button");
+        var li = document.getElementsByTagName("li");
+        var input = document.getElementsByTagName("input")[0];
+        var ul = document.getElementsByTagName("ul")[0];
+        var arr = [];
+        
+        init();
+        sortAndSet();
+
+        function isCheck(value) {
+            if (value !== "" && isNaN(value) === false)
+                return true
+            else {
+                alert("请输入");
+                input.focus();
+                return false
+            };
+        }
+
+        function isCheckNum(value) {
+            function isInteger(obj) {
+                return isNaN(obj) == false && obj % 1 === 0
+            }
+            if (value > 100 || value < 10 || isInteger(value) == false) {
+                alert("数字应在10-100");
+                return false;
+            } else return true;
+        }
+
+
+        function init() {
+            for (var m = 0; m < li.length; m++) {
+                mycall(add, li[m].innerText, m);
+            }
+        }
+
+        function sortAndSet() {
+            sort(arr);
+            for (var m = 0; m < li.length; m++) {
+                mycall(setHeight, arr[m], m);
+            }
+        }
+
+        function mycall(func, v, m) {
+            func.call(this, v, m)
+        }
+
+        function setHeight(value, index) {
+            li[index].style.height = value * 5 + "px";
+        }
+
+        function add(value, index) {
+            setHeight(value, index);
+            arr.push(value);
+        }
+
+
+        function sort(arr) {
+            var temp;
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = 0; j < arr.length; j++) {
+                    if (arr[i] - arr[j] < 0) {
+                        temp = arr[j];
+                        arr[j] = arr[i];
+                        arr[i] = temp;
+                    }
+                }
+            }
+        }
+
+        for (var i = 0; i < buttons.length; i++) {
+            (function(i) {
+                buttons[i].onclick = function() {
+                    var node = document.createElement("LI");
+                    var space = document.createTextNode(" ");
+                    var value = input.value;
+                    var textnode = document.createTextNode(value);
+                    node.appendChild(textnode);
+                    if (arr.length > 60) {
+                        alert("队列元素不能超过60")
+                        return
+                    }
+                    if (isCheck(value) && isCheckNum(value)) {
+                        if (i == 0) {
+                            ul.insertBefore(node, ul.childNodes[0]);
+                            ul.insertBefore(space, ul.childNodes[0]);
+                            add(value, 0);
+                            sortAndSet();
+                        } else if (i == 1) {
+                            ul.appendChild(node);
+                            ul.appendChild(space);
+                            add(value, arr.length);
+                            sortAndSet();
+                        }
+                    }
+                    if (i == 2) {
+                        alert(ul.childNodes[1].innerText);
+                        ul.removeChild(ul.childNodes[1]);
+                        ul.removeChild(ul.childNodes[0]);
+                        arr.shift();
+                    } else if (i == 3) {
+                        var len = ul.childNodes.length;
+                        alert(ul.childNodes[len - 2].innerText);
+                        ul.removeChild(ul.childNodes[len - 1]);
+                        ul.removeChild(ul.childNodes[len - 2]);
+                        arr.pop();
+                    }
+                }
+            })(i)
+        }
+
+    })();
+    </script>
+</body>
+
+</html>
